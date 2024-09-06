@@ -1,0 +1,6 @@
+{
+  "i18n-ally.localesPaths": [
+    "resources/lang",
+    "public/theme/v2board/assets/i18n"
+  ]
+}
