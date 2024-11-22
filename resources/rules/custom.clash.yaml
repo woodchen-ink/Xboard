@@ -44,6 +44,7 @@ proxy-groups:
 rules:
   # 自定义规则
   ## 您可以在此处插入您补充的自定义规则（请注意保持缩进）
+  - DOMAIN-SUFFIX,old-market-simulator.fandom.com,DIRECT
 
   # Google 中国服务
   - DOMAIN-SUFFIX,services.googleapis.cn,$app_name
