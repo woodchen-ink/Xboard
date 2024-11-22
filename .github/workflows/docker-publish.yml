@@ -44,8 +44,10 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
             docker pull woodchen/xboard:latest
-
+            
             docker stop xboard || true
             docker rm xboard || true
-
-            docker compose -f ${{secrets.DEPOLY_PATH}} up -d
+            
+            cd ${{ secrets.DEPLOY_PATH }}
+            docker compose up -d
+        
