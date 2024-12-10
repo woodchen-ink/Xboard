@@ -42,7 +42,15 @@ proxy-groups:
   - { name: "故障转移", type: fallback, proxies: [], url: "http://www.gstatic.com/generate_204", interval: 7200 }
 
 rules:
-  
+  # DOMAIN-SUFFIX,表示域名后缀
+  # DOMAIN-KEYWORD,表示域名关键字
+  # PROCESS-NAME,表示进程名
+  # DIRECT,表示直连
+  # REJECT,表示拒绝
+  # DOMAIN,表示域名
+  # IP-CIDR,表示IP段
+  # GEOIP,表示根据IP归属地
+  # MATCH,表示匹配
   # 自定义规则
   ## 您可以在此处插入您补充的自定义规则（请注意保持缩进）
   - DOMAIN-SUFFIX,old-market-simulator.fandom.com,DIRECT
@@ -59,15 +67,9 @@ rules:
   - DOMAIN-SUFFIX,services.googleapis.cn,$app_name
   - DOMAIN-SUFFIX,xn--ngstr-lra8j.com,$app_name
 
-  # DOMAIN-SUFFIX,表示域名后缀
-  # DOMAIN-KEYWORD,表示域名关键字
-  # PROCESS-NAME,表示进程名
-  # DIRECT,表示直连
-  # REJECT,表示拒绝
-  # DOMAIN,表示域名
-  # IP-CIDR,表示IP段
-  # GEOIP,表示根据IP归属地
-  # MATCH,表示匹配
+  # wise
+  - DOMAIN-SUFFIX,wise.com,$app_name
+
   - DOMAIN-SUFFIX,cursor.sh,$app_name 
   - DOMAIN-KEYWORD,anthropic,$app_name
   - DOMAIN-SUFFIX,openai.com,$app_name
