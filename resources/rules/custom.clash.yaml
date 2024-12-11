@@ -571,5 +571,9 @@ rules:
   - IP-CIDR6,fe80::/10,DIRECT # 本地回环
 
 
-  - GEOIP,CN,DIRECT # 国内直连
+  - GEOIP,US,$app_name 
+  - GEOIP,GB,$app_name 
+  - GEOIP,JP,$app_name
+  - GEOIP,RU,$app_name
+  - geosite:CN,DIRECT # 国内直连
   - MATCH,$app_name
