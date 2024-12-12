@@ -571,9 +571,14 @@ rules:
   - IP-CIDR6,fe80::/10,DIRECT # 本地回环
 
 
+    # 剩余未匹配的国内网站
+  - DOMAIN-SUFFIX,cn,DIRECT
+  - DOMAIN-KEYWORD,-cn,DIRECT
+
+    # GEOIP
+  - GEOIP,CN,DIRECT
   - GEOIP,US,$app_name 
   - GEOIP,GB,$app_name 
   - GEOIP,JP,$app_name
   - GEOIP,RU,$app_name
-  - geosite:CN,DIRECT # 国内直连
   - MATCH,$app_name

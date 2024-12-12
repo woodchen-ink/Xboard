@@ -550,5 +550,4 @@ rules:
   - GEOIP,GB,$app_name 
   - GEOIP,JP,$app_name
   - GEOIP,RU,$app_name
-  - geosite:CN,DIRECT # 国内直连
   - MATCH,$app_name
