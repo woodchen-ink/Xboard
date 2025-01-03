@@ -54,6 +54,31 @@ rules:
   # 自定义规则
   ## 您可以在此处插入您补充的自定义规则（请注意保持缩进）
   - DOMAIN-SUFFIX,old-market-simulator.fandom.com,DIRECT
+
+  # whatsapp
+  - PROCESS-NAME,WhatsApp,$app_name
+  - DOMAIN-SUFFIX,whatsapp.net,$app_name
+  - DOMAIN-KEYWORD,whatsapp,$app_name
+
+  # telegram
+  - DOMAIN-SUFFIX,telegra.ph,$app_name # telegram
+  - DOMAIN-SUFFIX,telegram.org,$app_name # telegram
+  - PROCESS-NAME,Telegram,$app_name # 进程名
+  - IP-CIDR,91.108.4.0/22,$app_name,no-resolve # telegram
+  - IP-CIDR,91.108.8.0/21,$app_name,no-resolve # telegram
+  - IP-CIDR,91.108.16.0/22,$app_name,no-resolve # telegram
+  - IP-CIDR,91.108.56.0/22,$app_name,no-resolve # telegram
+  - IP-CIDR,149.154.160.0/20,$app_name,no-resolve # telegram
+  - IP-CIDR6,2001:67c:4e8::/48,$app_name,no-resolve # telegram
+  - IP-CIDR6,2001:b28:f23d::/48,$app_name,no-resolve # telegram
+  - IP-CIDR6,2001:b28:f23f::/48,$app_name,no-resolve # telegram
+
+  - DOMAIN-SUFFIX,linkedin.com,$app_name # linkedin
+
+  # adguard
+  - DOMAIN,injections.adguard.org,DIRECT # adguard
+  - DOMAIN,local.adguard.org,DIRECT # adguard
+  - DOMAIN-SUFFIX,local,DIRECT # adguard
   #steam,epic下载
   - DOMAIN-SUFFIX,steamcontent.com,DIRECT
   - DOMAIN-SUFFIX,steamstatic.com,DIRECT
@@ -248,7 +273,6 @@ rules:
   - DOMAIN-SUFFIX,twimg.com,$app_name
   - DOMAIN-KEYWORD,blogspot,$app_name
   - DOMAIN-SUFFIX,youtu.be,$app_name
-  - DOMAIN-KEYWORD,whatsapp,$app_name
   - DOMAIN-KEYWORD,admarvel,REJECT
   - DOMAIN-KEYWORD,admaster,REJECT
   - DOMAIN-KEYWORD,adsage,REJECT
@@ -545,22 +569,6 @@ rules:
   - DOMAIN-SUFFIX,yimg.com,$app_name
   - DOMAIN-SUFFIX,ying.com,$app_name
   - DOMAIN-SUFFIX,yoyo.org,$app_name
-  - DOMAIN-SUFFIX,ytimg.com,$app_name # youtube
-  - DOMAIN-SUFFIX,linkedin.com,$app_name # linkedin
-  - DOMAIN-SUFFIX,telegra.ph,$app_name # telegram
-  - DOMAIN-SUFFIX,telegram.org,$app_name # telegram
-  - PROCESS-NAME,Telegram,$app_name # 进程名
-  - IP-CIDR,91.108.4.0/22,$app_name,no-resolve # telegram
-  - IP-CIDR,91.108.8.0/21,$app_name,no-resolve # telegram
-  - IP-CIDR,91.108.16.0/22,$app_name,no-resolve # telegram
-  - IP-CIDR,91.108.56.0/22,$app_name,no-resolve # telegram
-  - IP-CIDR,149.154.160.0/20,$app_name,no-resolve # telegram
-  - IP-CIDR6,2001:67c:4e8::/48,$app_name,no-resolve # telegram
-  - IP-CIDR6,2001:b28:f23d::/48,$app_name,no-resolve # telegram
-  - IP-CIDR6,2001:b28:f23f::/48,$app_name,no-resolve # telegram
-  - DOMAIN,injections.adguard.org,DIRECT # adguard
-  - DOMAIN,local.adguard.org,DIRECT # adguard
-  - DOMAIN-SUFFIX,local,DIRECT # adguard
   - IP-CIDR,127.0.0.0/8,DIRECT # 本地回环
   - IP-CIDR,172.16.0.0/12,DIRECT # 本地回环
   - IP-CIDR,192.168.0.0/16,DIRECT # 本地回环
@@ -569,8 +577,6 @@ rules:
   - IP-CIDR,100.64.0.0/10,DIRECT # 本地回环
   - IP-CIDR,224.0.0.0/4,DIRECT # 本地回环
   - IP-CIDR6,fe80::/10,DIRECT # 本地回环
-
-
     # 剩余未匹配的国内网站
   - DOMAIN-SUFFIX,cn,DIRECT
   - DOMAIN-KEYWORD,-cn,DIRECT
