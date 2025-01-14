@@ -48,6 +48,6 @@ jobs:
             docker stop xboard || true
             docker rm xboard || true
             
-            cd /opt/1panel/apps/openresty/openresty/www/sites/vv.q58.org/index
+            cd /opt/1panel/docker/compose/xboard
             docker compose up -d
         
