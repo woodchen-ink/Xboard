@@ -51,8 +51,6 @@ class StripeALLInOne {
         $jumpUrl = null;
         $actionType = 0;
         $stripe = new \Stripe\StripeClient($this->config['stripe_sk_live']);
-        
-        $descriptor = 'sub-' . $order['user_id'] . '-' . substr($order['trade_no'], -8);
 
         if ($this->config['payment_method'] != "cards"){
             $stripePaymentMethod = $stripe->paymentMethods->create([
@@ -65,7 +63,7 @@ class StripeALLInOne {
                 'confirm' => true,
                 'payment_method' => $stripePaymentMethod->id,
                 'automatic_payment_methods' => ['enabled' => true],
-                'statement_descriptor' => $descriptor,
+                'statement_descriptor_suffix' => 'sub-' . $order['user_id'] . '-' . substr($order['trade_no'], -8),
                 'description' => $this->config['description'],
                 'metadata' => [
                     'user_id' => $order['user_id'],
@@ -121,7 +119,7 @@ class StripeALLInOne {
                             'currency' => $currency,
                             'unit_amount' => floor($order['total_amount'] * $exchange),
                             'product_data' => [
-                                'name' => $descriptor,
+                                'name' => 'sub-' . $order['user_id'] . '-' . substr($order['trade_no'], -8),
                                 'description' => $this->config['description'],
                             ]
                         ],
@@ -129,9 +127,6 @@ class StripeALLInOne {
                     ],
                 ],
                 'mode' => 'payment',
-                'payment_intent_data' => [
-                    'statement_descriptor_suffix' => substr($descriptor, -22)
-                ]
             ]);
             $jumpUrl = $creditCheckOut['url'];
             $actionType = 1;
