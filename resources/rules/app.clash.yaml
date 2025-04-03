@@ -545,9 +545,5 @@ rules:
   - IP-CIDR,224.0.0.0/4,DIRECT # 本地回环
   - IP-CIDR6,fe80::/10,DIRECT # 本地回环
 
-
-  - GEOIP,US,$app_name 
-  - GEOIP,GB,$app_name 
-  - GEOIP,JP,$app_name
-  - GEOIP,RU,$app_name
+  - GEOIP,CN,DIRECT
   - MATCH,$app_name
