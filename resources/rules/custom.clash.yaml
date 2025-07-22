@@ -28,7 +28,7 @@ proxy-groups:
 
 rules:
   # DOMAIN-SUFFIX,表示域名后缀
-  # DOMAIN-KEYWORD,表示域名关键字
+  # DOMAIN-KEYWORD,表示域名关键字  
   # PROCESS-NAME,表示进程名
   # DIRECT,表示直连
   # REJECT,表示拒绝
@@ -40,12 +40,12 @@ rules:
   ## 您可以在此处插入您补充的自定义规则（请注意保持缩进）
   - DOMAIN-SUFFIX,old-market-simulator.fandom.com,DIRECT
 
-  # whatsapp
+  # WhatsApp
   - PROCESS-NAME,WhatsApp,$app_name
   - DOMAIN-SUFFIX,whatsapp.net,$app_name
   - DOMAIN-KEYWORD,whatsapp,$app_name
 
-  # telegram
+  # Telegram
   - DOMAIN-SUFFIX,telegra.ph,$app_name # telegram
   - DOMAIN-SUFFIX,telegram.org,$app_name # telegram
   - PROCESS-NAME,Telegram,$app_name # 进程名
@@ -58,13 +58,12 @@ rules:
   - IP-CIDR6,2001:b28:f23d::/48,$app_name,no-resolve # telegram
   - IP-CIDR6,2001:b28:f23f::/48,$app_name,no-resolve # telegram
 
-  - DOMAIN-SUFFIX,linkedin.com,$app_name # linkedin
-
-  # adguard
+  # AdGuard
   - DOMAIN,injections.adguard.org,DIRECT # adguard
   - DOMAIN,local.adguard.org,DIRECT # adguard
   - DOMAIN-SUFFIX,local,DIRECT # adguard
-  #steam,epic下载
+
+  # Steam & Epic Games 下载优化
   - DOMAIN-SUFFIX,steamcontent.com,DIRECT
   - DOMAIN-SUFFIX,steamstatic.com,DIRECT
   - DOMAIN-SUFFIX,steamserver.net,DIRECT
@@ -77,9 +76,14 @@ rules:
   - DOMAIN-SUFFIX,services.googleapis.cn,$app_name
   - DOMAIN-SUFFIX,xn--ngstr-lra8j.com,$app_name
 
-  # wise
+  # 金融服务
   - DOMAIN-SUFFIX,wise.com,$app_name
 
+  # Apple Music 优化
+  - PROCESS-NAME,AppleMusic,DIRECT
+  - DOMAIN-SUFFIX,applemusic.com,$app_name
+
+  # AI 服务优化
   - DOMAIN-SUFFIX,cursor.sh,$app_name 
   - DOMAIN-KEYWORD,anthropic,$app_name
   - DOMAIN-SUFFIX,openai.com,$app_name
@@ -87,8 +91,10 @@ rules:
   - DOMAIN-SUFFIX,oaistatic.com,$app_name
   - DOMAIN-SUFFIX,oaiusercontent.com,$app_name
   - DOMAIN-SUFFIX,chatgpt.com,$app_name
-  - DOMAIN,safebrowsing.urlsec.qq.com,DIRECT
-  - DOMAIN,safebrowsing.googleapis.com,DIRECT
+
+  # Apple 服务分流
+  - DOMAIN,safebrowsing.urlsec.qq.com,DIRECT # 如果您并不信任此服务提供商或防止其下载消耗过多带宽资源，可以进入 Safari 设置，关闭 Fraudulent Website Warning 功能，并使用 REJECT 策略。
+  - DOMAIN,safebrowsing.googleapis.com,DIRECT # 如果您并不信任此服务提供商或防止其下载消耗过多带宽资源，可以进入 Safari 设置，关闭 Fraudulent Website Warning 功能，并使用 REJECT 策略。
   - DOMAIN,developer.apple.com,$app_name
   - DOMAIN-SUFFIX,digicert.com,$app_name
   - DOMAIN,ocsp.apple.com,$app_name
@@ -119,6 +125,8 @@ rules:
   - DOMAIN-SUFFIX,apple.com,DIRECT
   - DOMAIN-SUFFIX,apple-cloudkit.com,DIRECT
   - DOMAIN-SUFFIX,apple-mapkit.com,DIRECT
+
+  # 国内网站直连规则
   - DOMAIN-SUFFIX,cn,DIRECT
   - DOMAIN-KEYWORD,-cn,DIRECT
   - DOMAIN-SUFFIX,126.com,DIRECT
@@ -245,6 +253,8 @@ rules:
   - DOMAIN-SUFFIX,zhimg.com,DIRECT
   - DOMAIN-SUFFIX,zimuzu.tv,DIRECT
   - DOMAIN-SUFFIX,zoho.com,DIRECT
+
+  # 抗 DNS 污染 - 国外服务
   - DOMAIN-KEYWORD,amazon,$app_name
   - DOMAIN-KEYWORD,google,$app_name
   - DOMAIN-KEYWORD,gmail,$app_name
@@ -258,6 +268,8 @@ rules:
   - DOMAIN-SUFFIX,twimg.com,$app_name
   - DOMAIN-KEYWORD,blogspot,$app_name
   - DOMAIN-SUFFIX,youtu.be,$app_name
+
+  # 广告拦截
   - DOMAIN-KEYWORD,admarvel,REJECT
   - DOMAIN-KEYWORD,admaster,REJECT
   - DOMAIN-KEYWORD,adsage,REJECT
@@ -285,6 +297,8 @@ rules:
   - DOMAIN-SUFFIX,vungle.com,REJECT
   - DOMAIN-KEYWORD,wlmonitor,REJECT
   - DOMAIN-KEYWORD,zjtoolbar,REJECT
+
+  # 国外网站代理规则
   - DOMAIN-SUFFIX,licdn.com,$app_name
   - DOMAIN-SUFFIX,linkedin.com,$app_name
   - DOMAIN-SUFFIX,9to5mac.com,$app_name
@@ -417,6 +431,7 @@ rules:
   - DOMAIN-SUFFIX,kat.cr,$app_name
   - DOMAIN-SUFFIX,klip.me,$app_name
   - DOMAIN-SUFFIX,libsyn.com,$app_name
+  - DOMAIN-SUFFIX,line-apps.com,$app_name
   - DOMAIN-SUFFIX,linode.com,$app_name
   - DOMAIN-SUFFIX,lithium.com,$app_name
   - DOMAIN-SUFFIX,littlehj.com,$app_name
@@ -554,6 +569,29 @@ rules:
   - DOMAIN-SUFFIX,yimg.com,$app_name
   - DOMAIN-SUFFIX,ying.com,$app_name
   - DOMAIN-SUFFIX,yoyo.org,$app_name
+  - DOMAIN-SUFFIX,ytimg.com,$app_name # youtube
+
+  # Google 中国服务 IP 段
+  - IP-CIDR,120.232.181.162/32,$app_name,no-resolve
+  - IP-CIDR,120.241.147.226/32,$app_name,no-resolve
+  - IP-CIDR,120.253.253.226/32,$app_name,no-resolve
+  - IP-CIDR,120.253.255.162/32,$app_name,no-resolve
+  - IP-CIDR,120.253.255.34/32,$app_name,no-resolve
+  - IP-CIDR,120.253.255.98/32,$app_name,no-resolve
+  - IP-CIDR,180.163.150.162/32,$app_name,no-resolve
+  - IP-CIDR,180.163.150.34/32,$app_name,no-resolve
+  - IP-CIDR,180.163.151.162/32,$app_name,no-resolve
+  - IP-CIDR,180.163.151.34/32,$app_name,no-resolve
+  - IP-CIDR,203.208.39.0/24,$app_name,no-resolve
+  - IP-CIDR,203.208.40.0/24,$app_name,no-resolve
+  - IP-CIDR,203.208.41.0/24,$app_name,no-resolve
+  - IP-CIDR,203.208.43.0/24,$app_name,no-resolve
+  - IP-CIDR,203.208.50.0/24,$app_name,no-resolve
+  - IP-CIDR,220.181.174.162/32,$app_name,no-resolve
+  - IP-CIDR,220.181.174.226/32,$app_name,no-resolve
+  - IP-CIDR,220.181.174.34/32,$app_name,no-resolve
+
+  # 局域网直连
   - IP-CIDR,127.0.0.0/8,DIRECT # 本地回环
   - IP-CIDR,172.16.0.0/12,DIRECT # 本地回环
   - IP-CIDR,192.168.0.0/16,DIRECT # 本地回环
@@ -562,10 +600,7 @@ rules:
   - IP-CIDR,100.64.0.0/10,DIRECT # 本地回环
   - IP-CIDR,224.0.0.0/4,DIRECT # 本地回环
   - IP-CIDR6,fe80::/10,DIRECT # 本地回环
-    # 剩余未匹配的国内网站
-  - DOMAIN-SUFFIX,cn,DIRECT
-  - DOMAIN-KEYWORD,-cn,DIRECT
 
-    # GEOIP
+  # 最终规则
   - GEOIP,CN,DIRECT
   - MATCH,$app_name

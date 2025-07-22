@@ -45,6 +45,10 @@ rules:
   # wise
   - DOMAIN-SUFFIX,wise.com,$app_name
 
+  # apple music
+  - PROCESS-NAME,AppleMusic,DIRECT
+  - DOMAIN-SUFFIX,applemusic.com,$app_name
+
   - DOMAIN-SUFFIX,cursor.sh,$app_name 
   - DOMAIN-KEYWORD,anthropic,$app_name
   - DOMAIN-SUFFIX,openai.com,$app_name
