@@ -127,8 +127,6 @@ rules:
   - DOMAIN-SUFFIX,apple-mapkit.com,DIRECT
 
   # 国内网站直连规则
-  - DOMAIN-SUFFIX,cn,DIRECT
-  - DOMAIN-KEYWORD,-cn,DIRECT
   - DOMAIN-SUFFIX,126.com,DIRECT
   - DOMAIN-SUFFIX,126.net,DIRECT
   - DOMAIN-SUFFIX,127.net,DIRECT
@@ -150,8 +148,6 @@ rules:
   - DOMAIN-SUFFIX,bilivideo.com,DIRECT
   - DOMAIN-SUFFIX,caiyunapp.com,DIRECT
   - DOMAIN-SUFFIX,clouddn.com,DIRECT
-  - DOMAIN-SUFFIX,cnbeta.com,DIRECT
-  - DOMAIN-SUFFIX,cnbetacdn.com,DIRECT
   - DOMAIN-SUFFIX,cootekservice.com,DIRECT
   - DOMAIN-SUFFIX,csdn.net,DIRECT
   - DOMAIN-SUFFIX,ctrip.com,DIRECT
@@ -347,7 +343,6 @@ rules:
   - DOMAIN-SUFFIX,cloudfront.net,$app_name
   - DOMAIN-SUFFIX,cloudmagic.com,$app_name
   - DOMAIN-SUFFIX,cmail19.com,$app_name
-  - DOMAIN-SUFFIX,cnet.com,$app_name
   - DOMAIN-SUFFIX,cocoapods.org,$app_name
   - DOMAIN-SUFFIX,comodoca.com,$app_name
   - DOMAIN-SUFFIX,crashlytics.com,$app_name
