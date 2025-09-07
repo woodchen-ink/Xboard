@@ -83,6 +83,10 @@ rules:
   - PROCESS-NAME,AppleMusic,DIRECT
   - DOMAIN-SUFFIX,applemusic.com,$app_name
 
+  # Oracle不走代理
+  - DOMAIN-SUFFIX,oraclecloud.com,DIRECT
+  - DOMAIN-SUFFIX,oracle.com,DIRECT
+
   # AI 服务优化
   - DOMAIN-SUFFIX,cursor.sh,$app_name 
   - DOMAIN-KEYWORD,anthropic,$app_name
