@@ -199,8 +199,9 @@ class Clash extends AbstractProtocol
 
         switch (data_get($protocol_settings, 'network')) {
             case 'tcp':
-                $array['network'] = data_get($protocol_settings, 'network_settings.header.type');
-                if (data_get($protocol_settings, 'network_settings.header.type', 'none') !== 'none') {
+                $headerType = data_get($protocol_settings, 'network_settings.header.type', 'none');
+                $array['network'] = ($headerType === 'http') ? 'http' : 'tcp';
+                if ($headerType === 'http') {
                     if ($httpOpts = array_filter([
                         'headers' => data_get($protocol_settings, 'network_settings.header.request.headers'),
                         'path' => data_get($protocol_settings, 'network_settings.header.request.path', ['/'])
@@ -237,10 +238,10 @@ class Clash extends AbstractProtocol
         $array['port'] = $server['port'];
         $array['password'] = $password;
         $array['udp'] = true;
-        if ($serverName = data_get($protocol_settings, 'server_name')) {
+        if ($serverName = data_get($protocol_settings, 'tls_settings.server_name')) {
             $array['sni'] = $serverName;
         }
-        $array['skip-cert-verify'] = (bool) data_get($protocol_settings, 'allow_insecure');
+        $array['skip-cert-verify'] = (bool) data_get($protocol_settings, 'tls_settings.allow_insecure', false);
 
         switch (data_get($protocol_settings, 'network')) {
             case 'tcp':
