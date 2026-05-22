@@ -102,6 +102,10 @@ jobs:
             network.host
 
 
+      - name: Install cosign
+        if: steps.build-and-push.outputs.digest != ''
+        uses: sigstore/cosign-installer@v3
+
       - name: Sign image
         if: steps.build-and-push.outputs.digest != ''
         run: |
